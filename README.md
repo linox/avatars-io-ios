@@ -10,6 +10,11 @@ This class allows mobile integration of the Avatars.io platform.  It allows a de
 
 Screenshots
 -----------
+![screen1](https://github.com/chute/avatars-io-ios/raw/master/screenshots/APPC_1.PNG)
+![screen2](https://github.com/chute/avatars-io-ios/raw/master/screenshots/APPC_2.PNG)
+![screen3](https://github.com/chute/avatars-io-ios/raw/master/screenshots/APPC_3.PNG)
+![screen4](https://github.com/chute/avatars-io-ios/raw/master/screenshots/APPC_4.PNG)
+![screen5](https://github.com/chute/avatars-io-ios/raw/master/screenshots/APPC_5.PNG)
 
 Subclassing
 -----------
