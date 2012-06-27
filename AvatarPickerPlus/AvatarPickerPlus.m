@@ -2067,7 +2067,7 @@
         if(pathComponent)
             [dict setObject:pathComponent forKey:@"path"];
         NSMutableDictionary *params  = [NSMutableDictionary dictionaryWithObject:dict forKey:@"data"];
-        params = [NSMutableDictionary dictionaryWithObject:[params JSONRepresentation] forKey:@"raw"];
+        params = [NSMutableDictionary dictionaryWithObject:[NSMutableData dataWithData:[[params JSONRepresentation] dataUsingEncoding:NSUTF8StringEncoding]] forKey:@"raw"];
         NSDictionary *data = [self getTokenForParams:params];
         while (!data) {
             data = [self getTokenForParams:params];

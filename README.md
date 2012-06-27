@@ -48,6 +48,7 @@ Implementation
 	    [picker setDelegate:self];
 	    [picker setDefaultAccessToken:@"YOUR_ACCESS_TOKEN"];
 	    [self presentModalViewController:picker animated:YES];
+	    [picker release];
 	}
 	-(void)AvatarPickerController:(AvatarPickerPlus *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info{
 	    [imageView setImage:[info objectForKey:AvatarPickerImage]];
