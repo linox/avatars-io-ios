@@ -2012,6 +2012,7 @@
     NSString *_path              = [NSString stringWithFormat:@"%@v1/token", AVATAR_PICKER_BASE_URL];
     APPRequest *request           = [[APPRequest alloc] init];
     [request setDefaultAccessToken:[self defaultAccessToken]];
+    [params setObject:[NSDictionary dictionaryWithObject:@"application/json" forKey:@"Content-Type"] forKey:@"headers"];
     GCResponse *_response        = [[request postRequestWithPath:_path andParams:params] retain];
     NSDictionary *data = [_response data];
     [request release];
@@ -2067,9 +2068,10 @@
         if(pathComponent)
             [dict setObject:pathComponent forKey:@"path"];
         NSMutableDictionary *params  = [NSMutableDictionary dictionaryWithObject:dict forKey:@"data"];
-        params = [NSMutableDictionary dictionaryWithObject:[NSMutableData dataWithData:[[params JSONRepresentation] dataUsingEncoding:NSUTF8StringEncoding]] forKey:@"raw"];
+        NSString *jsonString = [params JSONRepresentation];
+        params = [NSMutableDictionary dictionaryWithObject:[NSMutableData dataWithData:[jsonString dataUsingEncoding:NSUTF8StringEncoding]] forKey:@"raw"];
         NSDictionary *data = [self getTokenForParams:params];
-        while (!data) {
+        while (!data || [data objectForKey:@"error"]) {
             data = [self getTokenForParams:params];
         }
         [self setAssetURL:[data objectForKey:@"url"]];

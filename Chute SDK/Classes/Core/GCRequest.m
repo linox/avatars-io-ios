@@ -39,8 +39,16 @@
     ASIFormDataRequest *_request = [ASIFormDataRequest requestWithURL:[NSURL URLWithString:path]];
     [_request setRequestHeaders:[self headers]];
     if(params){
+        if ([params objectForKey:@"headers"]) {
+            NSDictionary *headers = [params objectForKey:@"headers"];
+            for (id key in [headers allKeys]){
+                [_request addRequestHeader:key value:[headers objectForKey:key]];
+            }
+            [params removeObjectForKey:@"headers"];
+        }
         if ([params objectForKey:@"raw"]) {
-            [_request setPostBody:[params objectForKey:@"raw"]];
+            NSMutableData *data = [NSMutableData dataWithData:[params objectForKey:@"raw"]];
+            [_request setPostBody:data];
         }
         else {
             [_request setPostBody:nil];
@@ -52,6 +60,7 @@
     [_request setTimeOutSeconds:300.0];
     [_request setRequestMethod:method];
     [_request startSynchronous];
+    NSLog(@"POST BODY: %@",[_request postBody]);
     
     GCResponse *_result = [[[GCResponse alloc] initWithRequest:_request] autorelease];
     return _result;
