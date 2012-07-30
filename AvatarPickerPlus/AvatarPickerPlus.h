@@ -13,9 +13,7 @@ enum {
     APPAllowFacebook    = 1<<0,
     APPAllowTwitter     = 1<<1,
     APPAllowInstagram   = 1<<2,
-    APPAllowFlickr      = 1<<3,
-    APPAllowPicasa      = 1<<4,
-    APPAllowGravatar    = 1<<5
+    APPAllowGravatar    = 1<<3
 };
 typedef NSUInteger AvatarPickerPlusAllowedServices;
 

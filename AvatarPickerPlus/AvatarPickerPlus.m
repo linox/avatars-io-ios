@@ -1335,7 +1335,7 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        [self setAllowedServices:APPAllowFacebook|APPAllowFlickr|APPAllowGravatar|APPAllowGravatar|APPAllowInstagram|APPAllowInstagram|APPAllowPicasa|APPAllowTwitter];
+        [self setAllowedServices:APPAllowFacebook|APPAllowGravatar|APPAllowInstagram|APPAllowTwitter];
         [self setUseStandardDevicePicker:NO];
         [self setDefaultAccessToken:@""];
     }
@@ -1344,7 +1344,7 @@
 - (id)init{
     self = [super init];
     if (self) {
-        [self setAllowedServices:APPAllowFacebook|APPAllowFlickr|APPAllowGravatar|APPAllowGravatar|APPAllowInstagram|APPAllowInstagram|APPAllowPicasa|APPAllowTwitter];
+        [self setAllowedServices:APPAllowFacebook|APPAllowGravatar|APPAllowInstagram|APPAllowTwitter];
         [self setUseStandardDevicePicker:NO];
         [self setDefaultAccessToken:@""];
     }
@@ -1459,10 +1459,6 @@
         [array addObject:@"twitter"];
     if(allowedServices & APPAllowInstagram)
         [array addObject:@"instagram"];
-    if(allowedServices & APPAllowFlickr)
-        [array addObject:@"flickr"];
-    if(allowedServices & APPAllowPicasa)
-        [array addObject:@"picasa"];
     if(allowedServices & APPAllowGravatar)
         [array addObject:@"gravatar"];
     return array;
@@ -1580,14 +1576,14 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        [self setAllowedServices:APPAllowFacebook|APPAllowFlickr|APPAllowGravatar|APPAllowGravatar|APPAllowInstagram|APPAllowInstagram|APPAllowPicasa|APPAllowTwitter];
+        [self setAllowedServices:APPAllowFacebook|APPAllowGravatar|APPAllowInstagram|APPAllowTwitter];
     }
     return self;
 }
 - (id)init{
     self = [super init];
     if (self) {
-        [self setAllowedServices:APPAllowFacebook|APPAllowFlickr|APPAllowGravatar|APPAllowGravatar|APPAllowInstagram|APPAllowInstagram|APPAllowPicasa|APPAllowTwitter];
+        [self setAllowedServices:APPAllowFacebook|APPAllowGravatar|APPAllowInstagram|APPAllowTwitter];
     }
     return self;
 }
